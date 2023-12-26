@@ -1,0 +1,324 @@
+		OS
+		UNIX 
+		LINUX 
+ 
+GUI -> icon  
+CUI -> command prompt terminal -> commands 
+
+linux -> command -> 
+	script 
+
+	is a program that design to run by a shell (Unix)- interpreter 
+
+	sh -> shell -> system
+	C -> compiler -> System 
+
+		copy 
+	Bsh  copy 
+	Ksh
+	Zsh   copy  
+	FIsh 
+commands 
+script 
+
+windows  
+linux -> vmWare , virtualbox -> linux
+
+powershell -> unix 
+ 
+online -> shell 
+w
+
+
+create a folder linux
+mkdir 
+mkdir linux 
+
+chnage your directory 
+cd 
+cd linux 
+
+print current directory - path 
+pwd - present working directory 
+pwd 
+d:\linux 
+
+
+jump out from current directory and jump to parent directory 
+cd ..
+d:\
+
+again back to linux 
+cd linux 
+
+
+create another folder 
+mkdir dummy 
+
+list out all the contents of the linux folder 
+ls 
+
+
+create a blank file 
+touch a.txt 
+
+vim 
+ed 
+
+
+
+ 
+#cat b.txt  > c.txt 
+
+#cat >> x.txt 
+
+
+#cat b.txt
+
+#ls
+
+#ls -la
+
+#pwd 
+
+
+#who
+
+#who am i 
+
+#cat c.txt 
+
+#head c.txt #top 10 line 
+#tail c.txt #bottom 10 line 
+
+#head -5 c.txt #top 5 line 
+#tail -5 c.txt #bottom 5 line 
+
+#cp c.txt d.txt  # copy 
+
+#cp c.txt /users/temp/x.txt 
+
+#move cut paste
+#mv a.txt j.txt #rename 
+
+#ls
+
+#rm j.txt 
+#ls
+
+grep ram d.txt
+
+#GUI CUI 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		OS
+		UNIX 
+		LINUX 
+ 
+GUI -> icon  
+CUI -> command prompt terminal -> commands 
+
+linux -> command -> 
+	script 
+
+	is a program that design to run by a shell (Unix)- interpreter 
+
+	sh -> shell -> system
+	C -> compiler -> System 
+
+		copy 
+	Bsh  copy 
+	Ksh
+	Zsh   copy  
+	FIsh 
+commands 
+script 
+
+windows  
+linux -> vmWare , virtualbox -> linux
+
+powershell -> unix 
+ 
+online -> shell 
+w
+
+
+create a folder linux
+mkdir 
+mkdir linux 
+
+chnage your directory 
+cd 
+cd linux 
+
+print current directory - path 
+pwd - present working directory 
+pwd 
+d:\linux 
+
+
+jump out from current directory and jump to parent directory 
+cd ..
+d:\
+
+again back to linux 
+cd linux 
+
+
+create another folder 
+mkdir dummy 
+
+list out all the contents of the linux folder 
+ls 
+
+
+create a blank file 
+touch a.txt 
+
+vim 
+ed 
+
+
+
+ 
+#cat b.txt  > c.txt 
+
+#cat >> x.txt 
+
+
+#cat b.txt
+
+#ls
+
+#ls -la
+
+#pwd 
+
+
+#who
+
+#who am i 
+
+#cat c.txt 
+
+#head c.txt #top 10 line 
+#tail c.txt #bottom 10 line 
+
+#head -5 c.txt #top 5 line 
+#tail -5 c.txt #bottom 5 line 
+
+#cp c.txt d.txt  # copy 
+
+#cp c.txt /users/temp/x.txt 
+
+#move cut paste
+#mv a.txt j.txt #rename 
+
+#ls
+
+#rm j.txt 
+#ls
+
+grep ram d.txt
+
+#GUI CUI 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
