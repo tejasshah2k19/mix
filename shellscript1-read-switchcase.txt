@@ -1,0 +1,64 @@
+#!/bin/bash
+# Hello World Program in Bash Shell
+
+
+
+# if...fi  
+# if...else...fi 
+# if..elif....elif....fi 
+# case...esac 
+
+
+echo "Enter two number"
+read a
+read b 
+
+echo -e "Press + for Add\nPress - For Sub\n0 For Exit"
+echo -e "\nPlease Enter choice"
+
+read choice 
+
+case $choice in 
+    "+")
+        #ans=$(($a + $b)) 
+        ans=`expr $a + $b`
+        echo "add = $ans"
+        ;;
+    
+    "-")
+        ans=$(($a - $b))
+        echo "sub = $ans"
+        ;;
+    
+    *)
+        echo "Please Select Valid choice!!"
+        
+esac 
+    
+
+
+
+
+
+
+
+
+# echo "enter name"
+# read name
+# echo "your name : $name "
+
+
+# ls
+# pwd
+
+#a-z A-Z underScore 
+
+# x=10
+# y=20
+# country="India"
+
+# echo $x
+# echo $y
+# echo $country
+
+
