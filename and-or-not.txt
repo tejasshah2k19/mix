@@ -1,0 +1,22 @@
+#and or not 
+#&& => -a  
+#|| => -o 
+#! => ! 
+
+a=30
+b=30
+c=30 
+
+if [ $a -gt $b -a $a -gt $c ]
+then 
+    echo "a is max"
+elif [ $b -gt $a -a $b -gt $c ]
+then
+    echo "b is max"
+elif [ $c -gt $a -a $c -gt $b ]
+then 
+    echo "c is max"
+else
+    echo "all are same"
+fi 
+
