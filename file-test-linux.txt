@@ -1,0 +1,30 @@
+#-b -c -d -f -t -r -e -s -x -w 
+
+
+file="/home/cg/root/65950374a12ff/main.sh"
+
+# if [ -e $file ]
+# then 
+#     echo "File Present"
+#     if [ -r $file ]
+#     then 
+#         echo "Readable"
+#     else 
+#         echo "Not Readable"
+#     fi
+# else 
+#     echo "File Not Present"
+# fi 
+
+file2="/home/cg/root/65950374a12ff/a.txt"
+
+
+if [ -s $file2 ]
+then 
+    echo "DATA PRESENT"
+else
+    echo "FILE EMPTY"
+    rm $file2
+fi
+
+ls
