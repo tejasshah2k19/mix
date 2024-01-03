@@ -1,0 +1,44 @@
+a=1002
+b=1001
+
+# if [ $a == $b ] 
+# then 
+#     echo "Both Are EQUAL"
+# fi 
+
+# if [ $a != $b ]
+# then 
+#     echo "Both are Not EQUAL"
+# fi 
+
+
+# if [ $a == $b ]
+# then
+#     echo "EQUALS"
+# else 
+#     echo "Not EQUALS"
+# fi 
+
+# -gt -ge -lt -le -eq -ne 
+
+if [ $a -gt $b ]
+then 
+    echo "$a is greater than $b"
+elif [ $a -lt $b ]
+then 
+    echo "$b is greater than $a"
+else
+    echo "$a and $b Are Same"
+fi 
+
+
+
+
+
+
+
+
+
+
+
+
