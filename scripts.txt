@@ -1,0 +1,420 @@
+Write shell script that accept filename and displays if file exists or not. If exist, then what
+is the size of that file
+
+#!/bin/bash
+
+echo "Enter File Name"
+read filename 
+  
+# Check if the file exists
+if [ -f "$filename" ]; then
+    echo "The file '$filename' exists."
+
+    # Get the size of the file
+    size=$(du $filename)   #alternate ->     size=$(stat -c%s "$filename")
+    echo "The size of '$filename' is $size bytes."
+
+else
+    echo "The file '$filename' does not exist."
+fi
+
+---------------------------------------------------------------------------------------------------------
+
+Write a shell script to remove the zero sized file from the current directory
+
+find . -maxdepth 1 -type f -size 0 -delete
+
+---------------------------------------------------------------------------------------------------------
+Write a shell script to display the name of all the executable file from the current
+directory.
+
+#!/bin/bash
+
+echo "Executable files in the current directory:"
+
+# Find and display executable files in the current directory
+for file in *; do
+    if [ -x "$file" ] && [ -f "$file" ]; then
+        echo "$file"
+    fi
+done
+-----------------------------------------------------------------------------
+Write a shell script that will display welcome message according to time
+
+#!/bin/bash
+
+current_hour=$(date +%H)
+
+if [ $current_hour -ge 0 ] && [ $current_hour -lt 12 ]; then
+    echo "Good morning!"
+elif [ $current_hour -ge 12 ] && [ $current_hour -lt 18 ]; then
+    echo "Good afternoon!"
+else
+    echo "Good evening!"
+fi
+
+----------------------------------------------------------------------------
+Write a shell script that takes a filename from the command line and checks whether
+the file is an ordinary file or not.
+If it is an ordinary file then it should display the contents of the file.
+If it is not an ordinary file then script should display the message:
+“ File does not exist or is not ordinary, cannot display
+
+
+#!/bin/bash
+
+# Check if an argument (filename) is provided
+if [ $# -eq 0 ]; then
+    echo "Please provide a filename as an argument."
+    exit 1
+fi
+
+filename=$1
+
+# Check if the file exists and is an ordinary file
+if [ -f "$filename" ]; then
+    echo "The file '$filename' is an ordinary file."
+    echo "Contents of '$filename':"
+    cat "$filename"
+else
+    echo "File does not exist or is not an ordinary file, cannot display."
+fi
+
+--------------------------------------------------------------------
+Write a shell script that takes a filename from the user and checks whether it is a
+directory file or not.
+If it is a directory, then the script should display the contents of
+the directory.
+If it is not a directory file then script should display the message:
+“File is not a directory file
+
+
+#!/bin/bash
+
+echo "Enter a filename: "
+read filename 
+
+# Check if the file exists
+if [ ! -e "$filename" ]; then
+    echo "File does not exist."
+    exit 1
+fi
+
+# Check if it's a directory
+if [ -d "$filename" ]; then
+    echo "The file '$filename' is a directory."
+    echo "Contents of '$filename':"
+    ls "$filename"
+else
+    echo "File is not a directory file."
+fi
+
+-----------------------------------------------------------------
+Write a shell script that takes a filename as an argument and checks if the file
+exists and is executable.
+If the file is executable then the shell script should display the message:
+“File exists”
+If the file does not exists and is not executable then the script should
+display the message: “File does not exist or is not executable.
+
+#!/bin/bash
+
+# Check if an argument is provided
+if [ $# -eq 0 ]; then
+    echo "Please provide a filename as an argument."
+    exit 1
+fi
+
+filename=$1
+
+# Check if the file exists and is executable
+if [ -x "$filename" ]; then
+    echo "File exists and is executable."
+else
+    echo "File does not exist or is not executable."
+fi
+------------------------------------------------------------------
+Write a shell script that displays all subdirectories in current working directory.
+#!/bin/bash
+
+echo "Subdirectories in the current working directory:"
+
+# List all directories in the current directory
+for dir in */; do
+    [ -d "$dir" ] && echo "$dir"
+done
+
+
+---------------------------------------------------------------------
+Write a shell script that accepts 2 filenames and checks if both exists; if both exist then
+append the content of the second file into the first file.
+
+#!/bin/bash
+
+echo "Enter two filename" 
+file1=read() 
+file2=read()
+
+# Check if both files exist
+if [ ! -f "$file1" ] || [ ! -f "$file2" ]; then
+    echo "One or both files do not exist."
+    exit 1
+fi
+
+# Append the content of the second file into the first file
+cat "$file2" >> "$file1"
+echo "Content of '$file2' appended to '$file1'."
+
+-----------------------------------------------------------------------------
+
+Write a shell script that takes the name of two files as arguments and performs the
+following:
+i. Displays the message :
+“Displaying the contents of file :( first argument)”
+and displays the contents page wise.
+ii. Copies the contents of the first argument to second argument.
+iii. Finally displays the message :
+“File copied successfully.”
+
+
+#!/bin/bash
+
+# Check if 2 filenames are provided as arguments
+if [ $# -ne 2 ]; then
+    echo "Please provide exactly two filenames as arguments."
+    exit 1
+fi
+
+file1=$1
+file2=$2
+
+# Display contents of file1 page-wise
+echo "Displaying the contents of file: $file1"
+echo "-------------------------------------"
+more "$file1"
+
+# Copy contents of file1 to file2
+cp "$file1" "$file2"
+
+# Check if copy operation was successful
+if [ $? -eq 0 ]; then
+    echo "File copied successfully."
+else
+    echo "Error copying the file."
+fi
+----------------------------------------------------------------------------------------
+
+Write a shell script to display the following menu and acts accordingly:
+i. Calendar of the current month and year.
+Display “Good Morning/Good Afternoon/Good Evening” according to the
+current login time.
+ii. User name, Users home directory.
+iii. Terminal name, Terminal type.
+iv. Machine name.
+v.No. of users who are currently logged in; List of users who are currently
+logged in.
+
+#!/bin/bash
+
+while true; do
+    clear
+    echo "Welcome to the System Information Menu:"
+    echo "1. Calendar of the current month and year."
+    echo "2. Display time-specific greeting."
+    echo "3. Display username and home directory."
+    echo "4. Display terminal name and type."
+    echo "5. Display machine name."
+    echo "6. Show the number of currently logged-in users."
+    echo "7. List users currently logged in."
+    echo "8. Exit"
+
+    read -p "Enter your choice: " choice
+
+    case $choice in
+        1)
+            cal
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        2)
+            current_hour=$(date +%H)
+            if [ $current_hour -ge 0 ] && [ $current_hour -lt 12 ]; then
+                greeting="Good Morning!"
+            elif [ $current_hour -ge 12 ] && [ $current_hour -lt 18 ]; then
+                greeting="Good Afternoon!"
+            else
+                greeting="Good Evening!"
+            fi
+            echo "$greeting"
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        3)
+            echo "Username: $USER"
+            echo "Home directory: $HOME"
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        4)
+            echo "Terminal: $TERM"
+            echo "Terminal type: $(tty)"
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        5)
+            echo "Machine name: $HOSTNAME"
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        6)
+            echo "Number of users logged in: $(who | wc -l)"
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        7)
+            echo "Users currently logged in:"
+            who
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+        8)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please enter a valid option."
+            read -n 1 -s -r -p "Press any key to continue..."
+            ;;
+    esac
+done
+-----------------------------------------------------------------------------------
+
+Write a shell script that displays the following menu and acts accordingly
+1. Concatenates two strings
+2. Renames a file
+3. Deletes a file.
+4. Copy the file to specific location
+
+#!/bin/bash
+
+while true; do
+    clear
+    echo "Menu:"
+    echo "1. Concatenate two strings"
+    echo "2. Rename a file"
+    echo "3. Delete a file"
+    echo "4. Copy a file to a specific location"
+    echo "5. Exit"
+
+    read -p "Enter your choice (1-5): " choice
+
+    case $choice in
+        1)
+            read -p "Enter first string: " str1
+            read -p "Enter second string: " str2
+            concatenated="$str1$str2"
+            echo "Concatenated string: $concatenated"
+            ;;
+        2)
+            read -p "Enter current filename: " old_name
+            read -p "Enter new filename: " new_name
+            mv "$old_name" "$new_name"
+            echo "File '$old_name' renamed to '$new_name'"
+            ;;
+        3)
+            read -p "Enter filename to delete: " file_to_delete
+            rm "$file_to_delete"
+            echo "File '$file_to_delete' deleted"
+            ;;
+        4)
+            read -p "Enter filename to copy: " file_to_copy
+            read -p "Enter destination directory: " destination_dir
+            cp "$file_to_copy" "$destination_dir"
+            echo "File '$file_to_copy' copied to '$destination_dir'"
+            ;;
+        5)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please enter a number from 1 to 5."
+            ;;
+    esac
+
+    read -n 1 -s -r -p "Press any key to continue..."
+done
+------------------------------------------------------------------
+
+Write a shell script that displays all hidden files in current directory.
+#!/bin/bash
+
+echo "Hidden files in the current directory:"
+echo "-------------------------------------"
+
+# Using ls command with -a flag to list all files including hidden ones
+ls -a | grep "^\."
+
+------------------------------------------------------------
+Write a shell script that enter a word and find whether it is a vowel or a digit.
+#!/bin/bash
+
+echo "Enter Character" 
+read input 
+
+# Check if input is a single character
+if [ ${#input} -eq 1 ]; then
+    case $input in
+        [aeiouAEIOU])
+            echo "It's a vowel."
+            ;;
+        [0-9])
+            echo "It's a digit."
+            ;;
+        *)
+            echo "It's neither a vowel nor a digit."
+            ;;
+    esac
+else
+    echo "Please enter a single character."
+fi
+
+--------------------------------------------------------------
+Write a shell script to calculate the age of the employee, if he enters born year .
+
+#!/bin/bash
+
+current_year=$(date +%Y)
+
+echo "Enter your birth year: "
+read birth_year
+
+# Validate if the input is a number
+if ! [[ $birth_year =~ ^[0-9]+$ ]]; then
+    echo "Please enter a valid year."
+    exit 1
+fi
+
+# Calculate age
+age=$((current_year - birth_year))
+
+echo "Your age is $age years."
+
+-----------------------------------------------------------------------------
+ Write a shell script to display grade of student from entered marks.
+
+ #!/bin/bash
+
+echo "Enter marsk" 
+read marks 
+
+ 
+# Calculate grade based on marks
+if [ $marks -ge 90 ]; then
+    echo "Grade: A"
+elif [ $marks -ge 80 ]; then
+    echo "Grade: B"
+elif [ $marks -ge 70 ]; then
+    echo "Grade: C"
+elif [ $marks -ge 60 ]; then
+    echo "Grade: D"
+else
+    echo "Grade: F"
+fi
+
+---------------------------------------------------------------------------------
+
+
+
