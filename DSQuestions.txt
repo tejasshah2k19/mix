@@ -1,0 +1,20 @@
+1) write a program that accepts enrolmentnum name agreegatemark 
+assign rank to student according to marks 
+rank-1 should be awarded to the students who secured highest marks and so on. 
+your program should print enrolmentnum name and rank in ascedning order. 
+
+2) write a program that multiply two sparse matrices. 
+
+3) write a program in c that accept a paragraph of text as input, make a list of words
+	and the number of occurence of each word in the paragraph as output. 
+	as part of the processing, an array and structrue should be created wherein each
+	structure consists of two field,namely one for storing the word and the 
+	other for storing the number of occurences of that word. 
+4) write a program in c for creation of linked lust and deletion of element from list. use pointers. 
+	all ,singly doubley and circular(single and double )  
+5) write a program that accepts two single linked list A and B as input, now print a single linked list that
+	consists of only those elements which are common in A and B 
+6) write program that accepts single linked list of integers as input now sort the elements of the list 
+	in ascending then accept an integer as input , insert this integer into the singley linked list at 
+	the appropriate position.
+
